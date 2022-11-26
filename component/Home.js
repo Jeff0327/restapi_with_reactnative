@@ -2,9 +2,15 @@ import React,{useState,useEffect} from "react";
 import { StyleSheet, Text, View,TouchableOpacity } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Movie from "./Movie";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { library, icon } from '@fortawesome/fontawesome-svg-core'
+// import { faCamera, faUser } from '@fortawesome/free-solid-svg-icons'
+
+// library.add(faCamera,faUser)
 export default function Home({navigation}){
     const [dater, setDater]=useState([]);
-  
+    // const camera = icon({ prefix: 'fas', iconName: 'camera' })
+    // const user = icon({ prefix: 'fas', iconName: 'user' })
     const GetRest=async()=>{
       try{
         const response = await fetch( `https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`)
@@ -23,16 +29,24 @@ export default function Home({navigation}){
     },[])
     return (
     <View style={styles.container}>
-        <View>
+        <View style={styles.content}>
         {dater.map((e)=>(<Movie id={e.id} key={e.id} title={e.title}/>))}
         <StatusBar style="auto" />
             
         </View>
         <View style={styles.bottomBar}>
-            <TouchableOpacity style={styles.bottomBtn}><Text>친구</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.bottomBtn}><Text>채팅</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.bottomBtn}><Text>상점</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.bottomBtn}><Text>내정보</Text></TouchableOpacity>
+            <TouchableOpacity onPress={()=>{navigation.navigate("Home")}} style={styles.bottomBtn}>
+                <Text>내정보</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.bottomBtn}>
+                
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.bottomBtn}>
+                
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.bottomBtn}>
+                
+            </TouchableOpacity>
         </View>
     </View>
     )
@@ -40,18 +54,21 @@ export default function Home({navigation}){
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
+      backgroundColor:"pink"
+    },
+    content:{
+        flex:3,
+        backgroundColor:"green",
     },
     bottomBar:{
+        flex:0.3,
+        backgroundColor:"white",
         flexDirection:"row",
-        
-        
-        marginBottom:0,
       },
       bottomBtn:{
-        
-        
+        alignSelf:"center",
+        maxWidth:"100%",
+        width:"20%",
+        marginLeft:"7%",
       },
   });
