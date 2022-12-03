@@ -9,20 +9,26 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo/vector-icons": "^13.0.0",
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-regular-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@react-navigation/drawer": "^6.5.1",
     "@react-navigation/stack": "^6.3.5",
+    "@reduxjs/toolkit": "^1.9.0",
     "axios": "^1.2.0",
     "expo": "~47.0.8",
+    "expo-device": "~5.0.0",
+    "expo-notifications": "~0.17.0",
     "expo-status-bar": "~1.4.2",
     "react": "18.1.0",
     "react-native": "0.70.5",
     "react-native-device-info": "^8.4.5",
     "react-native-gesture-handler": "~2.8.0",
-    "react-native-reanimated": "^2.13.0"
+    "react-native-reanimated": "^2.13.0",
+    "react-redux": "^8.0.5",
+    "redux": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
